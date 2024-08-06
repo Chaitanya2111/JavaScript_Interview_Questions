@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Coding Interview Questions</title>
+  </head>
+  <body>
+    <script>
+      // 1. Write afunction that returns the reverse of a string ?
+
+      function reversString(str) {
+        let reversed = "";
+        for (let i = str.length - 1; i >= 0; i--) {
+          reversed += str[i];
+        }
+        return reversed;
+      }
+      console.log(reversString("Chaitanya"));
+
+      //shortcut way
+
+      function reverseStr(str) {
+        return str.split("").reverse().join("");
+      }
+      console.log(reverseStr("Raut"));
+
+      //   2.write a function that returns a longest word in the sentence ?
+
+      function findLongestWord(sentence) {
+        const words = sentence.split("");
+        let longestWord = " ";
+
+        for (let word of words) {
+          if (word.length > longestWord.length) {
+            longestWord = word;
+          }
+        }
+        return longestWord;
+      }
+
+      console.log(findLongestWord("My Name Is Chaitanya Raut"));
+
+      //3. write a function that checks whether the given string is palindrome or not ?
+
+      function isPalindrome(str) {
+        const reversedStr = str.split(" ").reverse().join(" ");
+        return str === reversedStr;
+      }
+
+      console.log(isPalindrome("SAAS"));
+      console.log(isPalindrome("RAUT"));
+    </script>
+  </body>
+</html>
