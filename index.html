@@ -25,15 +25,20 @@
       }
       console.log(reverseStr("Raut"));
 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
       //   2.write a function that returns a longest word in the sentence ?
 
       function findLongestWord(sentence) {
-        const words = sentence.split("");
-        let longestWord = " ";
+        // Split the sentence into an array of words
+        const words = sentence.split(" ");
+        let longestWord = "";
 
+        // Iterate over each word in the array
         for (let word of words) {
+          // Check if the current word is longer than the current longest word
           if (word.length > longestWord.length) {
-            longestWord = word;
+            longestWord = word; // Update longestWord
           }
         }
         return longestWord;
@@ -41,15 +46,141 @@
 
       console.log(findLongestWord("My Name Is Chaitanya Raut"));
 
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
       //3. write a function that checks whether the given string is palindrome or not ?
 
       function isPalindrome(str) {
-        const reversedStr = str.split(" ").reverse().join(" ");
-        return str === reversedStr;
+        // Convert the string to lowercase and remove spaces for accurate checking
+        const cleanedStr = str.toLowerCase().replace(/\s+/g, "");
+        // Reverse the cleaned string
+        const reversedStr = cleanedStr.split("").reverse().join("");
+        // Check if the original string is the same as the reversed string
+        return cleanedStr === reversedStr;
       }
 
       console.log(isPalindrome("SAAS"));
       console.log(isPalindrome("RAUT"));
+      console.log(isPalindrome("A man a plan a canal Panama"));
+      console.log(isPalindrome("Was it a car or a cat I saw"));
+
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //   4.write a function that remove duplicate elemnts from an array ?
+      function removeDuplicate(arr) {
+        const uniqueElment = [];
+        for (let i = 0; i < arr.length; i++) {
+          // Check if the element is not already in the uniqueElment array
+          if (uniqueElment.indexOf(arr[i]) === -1) {
+            uniqueElment.push(arr[i]);
+          }
+        }
+        return uniqueElment;
+      }
+
+      // Call the function with an array as an argument
+      console.log(removeDuplicate([1, 2, 3, 3, 4, 5, 6, 6, 7, 8, 8, 9, 0, 0]));
+
+      // using set
+
+      function removeDuplicate(arr) {
+        return [...new Set(arr)];
+      }
+
+      console.log(removeDuplicate([1, 2, 3, 3, 4, 5, 6, 6, 7, 8, 8, 9, 0, 0]));
+
+      /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      // 5.write a function that checks whether two strings are anagrams or not ?
+
+      function areAnagrams(str1, str2) {
+        const sortstr1 = str1.split(" ").sort().join(" ");
+        const sortstr2 = str2.split(" ").sort().join(" ");
+        return sortstr1 === sortstr2;
+      }
+
+      console.log(areAnagrams("listen", "silent"));
+
+      ////////////////////////////////////////////////////////////////////////////////////
+
+      // 6.write a function that returns the numner of vowels in a string ?
+
+      function countVowels(str) {
+        const vowels = ["a", "e", "i", "o", "u"];
+        let count = 0;
+
+        for (let char of str.toLowerCase()) {
+          if (vowels.includes(char)) {
+            count++;
+          }
+        }
+        return count;
+      }
+
+      console.log(countVowels("Hello My name is chaitanya Raut"));
+
+      /////////////////////////////////////////////////////////////////////////////////////////
+
+      // 7.write a function to find the largest number in an array ?
+
+      function findLargestNumber(arr) {
+        let largest = arr[0];
+
+        for (let i = 1; i < arr.length; i++) {
+          if (arr[i] > largest) {
+            largest = arr[i];
+          }
+        }
+        return largest;
+      }
+      console.log(findLargestNumber([2, 4, 6, 9, 1, 22, 6, 90]));
+
+      /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      // 8. write a function to check if a given number is prime or not ?
+
+      function isPrime(number) {
+        for (let i = 2; i <= number / 2; i++) {
+          if (number % i === 0) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      console.log(isPrime(7));
+      console.log(isPrime(10));
+
+      //////////////////////////////////////////////////////////////////////////////////////////
+
+      // 9. write a function to calculate the factorial of a number ?
+
+      function faactorial(num) {
+        if (num === 0) {
+          return 1;
+        }
+
+        let factorial = 1;
+        for (let i = 1; i <= num; i++) {
+          factorial *= i;
+        }
+
+        return factorial;
+      }
+
+      console.log(faactorial(7));
+
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //10. write a program to remove all white space from a string ?
+
+      let inputstring = "hello   my   name                is    chaitanya raut";
+
+      function removeWhiteSpace(str) {
+        const result = str.replace(/\s/g, "");
+        return result;
+      }
+      console.log(removeWhiteSpace(inputstring));
     </script>
   </body>
 </html>
