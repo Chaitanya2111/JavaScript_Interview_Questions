@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scenario Based JavaScript Questions</title>
+  </head>
+  <body>
+    <script>
+      //1. how to validate user input as they type in a form ?
+      // ans  => by using event handling caor event listeners on input event.
+
+      const inputfield = document.getElementById("myinput");
+
+      inputfield.addEventListener("input", function (event) {
+        const inputvalue = event.target.value;
+
+        if (inputvalue.length < 3) {
+          console.log("input must 3 characters long");
+        } else {
+          console.log("input is valid");
+        }
+      });
+
+      //////////////////////////////////////////////////////////////
+
+      //2. how to handle asynchronous operations in js?
+      //ans => by using promises or async/await mechanism
+
+      async function fetchData() {
+        try {
+          const response = await fetch("..............");
+          const data = await response.json();
+          console.log(data);
+        } catch (erro) {
+          console.log(erro);
+        }
+      }
+
+      ////////////////////////////////////////////////////////////////////////////////
+
+      //3.how to implement paginationn for displaying large sets of data?
+      // ans => bu using slice() method or pagination libraries like react-pagination or vue-pagination.
+
+      const data = [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+        21, 22, 23, 24, 25,
+      ];
+
+      const itemsperPage = 10;
+      const pageNum = 1;
+
+      const startIndex = (pageNum - 1) * itemsperPage;
+      const paginationData = data.slice(startIndex, startIndex + itemsperPage);
+      console.log(paginationData);
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //4. how to store key-value pairs and efficiently access and manipulate data?
+      //ans => by using object or maps;
+
+      const person = {
+        name: "chaitanya",
+        age: 25,
+        occupation: "Engineer",
+      };
+      console.log(person.age);
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //5. how to implement drag-and-drop functionality for elemts on a web page ?
+
+      // ans => by setting draggable='true' for the element in the html file.
+
+      <div draggable="true" id="dragfile">
+        Drag Me
+      </div>;
+
+      const draggableElement = document.getElementById("dragfile");
+
+      draggableElement.addEventListener("dragstart", (event) => {
+        event.dragTransfer.setData("text/plain", event.target.id);
+      });
+
+      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      // 6. how to iterate over elements in an array and perform a specific operation an each elements ?
+      // ans => by using array methods forEach() or map() or for..of loop
+
+      const numbers = [1, 2, 3, 4, 5, 6, 7];
+
+      numbers.forEach((number) => {
+        number = number * 2;
+        console.log(number);
+      });
+
+      //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //7.how to implement a feature that allows users to search for specific items in large dataset ?
+      //ans => by using array methods filter() and includes();
+
+      const Userdata = ["my", "name", "is", "chaitanya"];
+      const searchitem = "nya";
+
+      const filterData = Userdata.filter((item) => item.includes(searchitem));
+      console.log(filterData);
+
+      /////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //8. what method is used to retrive data from external api ?
+      // ans => by using fetch () api
+      fetch("----||------")
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error));
+
+      ////////////////////////////////////////////////////////////////////////////////////////////
+
+      // 9.how to implement a feature that allows users to perform live search sugestions as they type ?
+      // ans => by using input event on element and by using fetch () api to retrive search suggestions from the server.
+
+      const input = document.getElementById("searchInp");
+      input.addEventListener("input", (event) => {
+        const searchText = event.target.value;
+
+        fetch("/search/suggestion?query =${searchText}")
+          .then((response) => response.json())
+          .then((data) => {
+            // dispaly search suggestions;
+          });
+      });
+    </script>
+  </body>
+</html>
